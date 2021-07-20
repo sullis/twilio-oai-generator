@@ -15,35 +15,46 @@ Check out [OpenAPI-Spec](https://github.com/OAI/OpenAPI-Specification) for addit
 ## How do I use this?
 Clone this repo into your local machine. It will include:
 
-```
+```bash
 .
-|- README.md    // this file
-|- 
-|- pom.xml      // build script
-|-- src
-|--- main
-|---- java
-|----- com.twilio.oai
-|-------- AbstractTwilioGoGenerator.java
-|-------- PathUtils.java
-|-------- TwilioGoGenerator.java // generator file for twilio-go
-|-------- TwilioTerraformGenerator.java // generator file for terraform-provider-twilio
-|---- resources // template files
-|----- twilio-go
-|----- terraform-provider-twilio
-|----- META-INF
-|------ services
-|------- org.openapitools.codegen.CodegenConfig
-|-- examples
-|--- go // contains test fixtures for go generation
-|--- terraform // contains test fixtures for terraform provider generation
-|--- build_twilio_go.py // script to generate the twilio-go and terraform-provider-twilio
-|--- twilio_api_v2010.yaml // baseline spec for testing
-|--- prism // files for spinning up the mock prism server
-|- .travis.yml // travis-ci config
-|- Dockerfile // setup for running the tests
-|- Makefile
-|- prism.sh // bash script to spin up the prism mock server and run tests
+├── CONTRIBUTING.md
+├── Dockerfile                  // setup for running the tests
+├── ISSUE_TEMPLATE.md
+├── LICENSE
+├── Makefile            
+├── PULL_REQUEST_TEMPLATE.md
+├── README.md                   // this file
+├── examples
+│   ├── build_twilio_go.py      // script to generate the twilio-go and terraform-provider-twilio
+│   ├── go                      // contains test fixtures for go generation
+│   ├── prism                   // files for spinning up the mock prism server
+│   ├── terraform               // contains test fixtures for terraform provider
+│   └── twilio_api_v2010.yaml   // baseline spec for testing
+├── pom.xml                     // build script
+├── prism.sh                    // script to spin up the prism mock server and run tests
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── twilio
+│   │   │           └── oai
+│   │   │               ├── AbstractTwilioGoGenerator.java
+│   │   │               ├── PathUtils.java
+│   │   │               ├── TwilioGoGenerator.java          // generator file for twilio-go
+│   │   │               └── TwilioTerraformGenerator.java`  // generator file for terraform-provider-twilio
+│   │   └── resources
+│   │       ├── META-INF
+│   │       │   └── services
+│   │       │       └── org.openapitools.codegen.CodegenConfig
+│   │       ├── terraform-provider-twilio
+│   │       ├── twilio-go
+│   └── test
+│       └── java
+│           └── com
+│               └── twilio
+│                   └── oai
+│                       └── TwilioGoGeneratorTest.java
+└── twilio-openapi-generator.iml
 ```
 
 You _will_ need to make changes in at least the following:
