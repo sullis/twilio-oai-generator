@@ -1,6 +1,4 @@
-# OpenAPI Generator for the [twilio-go](https://github.com/twilio/twilio-go/) library
-
-**:warning: Note: Please ignore items related to Terraform as it is not yet supported. Thanks!**
+# OpenAPI Generator for [twilio-go](https://github.com/twilio/twilio-go/) and [terraform-provider-twilio](https://github.com/twilio/terraform-provider-twilio)
 
 ## Overview
 This is a boiler-plate project to generate your own project derived from an OpenAPI specification.
@@ -20,16 +18,32 @@ Clone this repo into your local machine. It will include:
 ```
 .
 |- README.md    // this file
+|- 
 |- pom.xml      // build script
 |-- src
 |--- main
 |---- java
-|----- com.twilio.oai.TwilioGoGenerator.java // generator file
-|---- resources
-|----- twilio-go // template files
+|----- com.twilio.oai
+|-------- AbstractTwilioGoGenerator.java
+|-------- PathUtils.java
+|-------- TwilioGoGenerator.java // generator file for twilio-go
+|-------- TwilioTerraformGenerator.java // generator file for terraform-provider-twilio
+|---- resources // template files
+|----- twilio-go
+|----- terraform-provider-twilio
 |----- META-INF
 |------ services
 |------- org.openapitools.codegen.CodegenConfig
+|-- examples
+|--- go // contains test fixtures for go generation
+|--- terraform // contains test fixtures for terraform provider generation
+|--- build_twilio_go.py // script to generate the twilio-go and terraform-provider-twilio
+|--- twilio_api_v2010.yaml // baseline spec for testing
+|--- prism // files for spinning up the mock prism server
+|- .travis.yml // travis-ci config
+|- Dockerfile // setup for running the tests
+|- Makefile
+|- prism.sh // bash script to spin up the prism mock server and run tests
 ```
 
 You _will_ need to make changes in at least the following:
